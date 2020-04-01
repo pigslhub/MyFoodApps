@@ -15,6 +15,12 @@
      return view('default');
  });
 
+Auth::routes();
+//user routes
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('user/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+
+
 //Route::view('/', 'default')->name('/');
 //Route::view('/dashboard', 'default')->name('default  ');
 //Route::view('/inner-page', 'inner-page')->name('inner-page');
