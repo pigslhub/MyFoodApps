@@ -11,9 +11,9 @@
 |
 */
 
- Route::get('/', function () {
-     return view('default');
- });
+Route::get('/', function () {
+    return view('default');
+});
 
 Auth::routes();
 //user routes
@@ -137,7 +137,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
 
     //order routes
 
-    Route::group(['namespace' => 'shopMgt', 'prefix'=>'orders'], function () {
+    Route::group(['namespace' => 'shopMgt', 'prefix' => 'orders'], function () {
 
         Route::get('viewAllOrders', 'OrderController@viewAllOrders')->name('admin.order.viewAll');
         Route::get('viewSingleOrder/{id}', 'OrderController@viewSingleOrder')->name('admin.order.viewSingle');
@@ -177,7 +177,7 @@ Route::group(['namespace' => 'Shop', 'prefix' => 'shop'], function () {
 
     //order routes
 
-    Route::group(['namespace' => 'Chat', 'prefix'=>'orders'], function () {
+    Route::group(['namespace' => 'Chat', 'prefix' => 'orders'], function () {
 
         Route::get('viewAllOrders', 'OrderController@viewAllOrders')->name('shop.order.viewAll');
         Route::get('viewSingleOrder/{id}', 'OrderController@viewSingleOrder')->name('shop.order.viewSingle');
@@ -204,8 +204,6 @@ Route::group(['namespace' => 'Shop', 'prefix' => 'shop'], function () {
         Route::get('edit/{id}', 'AdvertisementController@edit')->name('shop.advertisement.edit');
         Route::post('update/{id}', 'AdvertisementController@update')->name('shop.advertisement.update');
     });
-
-
 });
 
 //Driver routes

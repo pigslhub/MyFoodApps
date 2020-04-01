@@ -12,17 +12,66 @@
       <p>general manager.</p>
     </div>
       <ul class="sidebar-menu">
-          <li><a class="sidebar-header" href="#" target="_blank"><i data-feather="home"></i><span>Admin Dashboard</span></a></li>
-          <li class="active"><a class="sidebar-header" href="#"><i data-feather="anchor"></i><span>Starter Kit</span><i class="fa fa-angle-right pull-right"></i></a>
-              <ul class="sidebar-submenu">
-                  <li class="active"><a href="#"><i class="fa fa-circle"></i>color version<i class="fa fa-angle-down pull-right"></i></a>
-                      <ul class="sidebar-submenu">
-                          <li><a class="active" href="#"><i class="fa fa-circle"></i>Layout Light</a></li>
-                      </ul>
-                  </li>
-              </ul>
-          </li>
-          <li><a class="sidebar-header" href="#" target="_blank"><i data-feather="file-text"></i><span>Documentation</span></a></li>
+        
+            <li>
+                <a class="sidebar-header" href="{{route('admin.home')}}">
+                    <i data-feather="home"></i><span>Dashboard</span>
+                </a>
+            </li>
+            
+             <li>
+                <a class="sidebar-header" href="{{route('admin.create')}}">
+                    <i data-feather="home"></i><span>Admins</span>
+                </a>
+            </li>
+            
+            <li>
+                <a class="sidebar-header" href="{{route('admin.customer.create')}}">
+                    <i data-feather="home"></i><span>Customers</span>
+                </a>
+            </li>
+
+            {{-- <li class="nav-item {{request()->routeIs('admin.category.create')? 'active':''}}">
+                <a href="{{route('admin.category.create')}}" class="nav-link" target="">
+                    <i class="fa fa-copy"></i>
+                    <p>Categories</p>
+                </a>
+            </li>
+           
+           
+            <li>
+                <a class="sidebar-header" href="{{route('admin.service.create')}}" >
+                    <i data-feather="home"></i><span>Services</span>
+                </a>
+            </li>
+           
+            <li>
+                <a class="sidebar-header" href="{{route('admin.shopType.create')}}" >
+                    <i data-feather="home"></i><span>Shop Types</span>
+                </a>
+            </li> --}}
+            <li>
+                <a class="sidebar-header" href="{{route('admin.shop.create')}}">
+                    <i data-feather="home"></i><span>Shops</span>
+                </a>
+            </li>
+            <li>
+                <a class="sidebar-header" href="{{route('admin.driver.create')}}">
+                    <i data-feather="home"></i><span>Drivers</span>
+                </a>
+            </li> 
+           
+            <li>
+                <a class="sidebar-header" href="{{route('admin.conversations.create')}}">
+                    <i data-feather="home"></i><span>Conversations</span>
+                </a>
+            </li>  
+            <li>
+                <a class="sidebar-header" href="{{route('admin.order.viewAll')}}">
+                    <i data-feather="home"></i><span>Orders</span>
+                </a>
+            </li>  
+        
       </ul>
   </div>
 </div>

@@ -1,9 +1,8 @@
-@extends('layouts.admin.master')
-@section('breadcrumb-title', 'Create Admin')
-@section('content')
+<?php $__env->startSection('pageName', 'Admins'); ?>
+<?php $__env->startSection('content'); ?>
 <div class="content">
     <div class="container-fluid">
-        @include("flashMessages")
+        <?php echo $__env->make("flashMessages", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -13,8 +12,8 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                             <form action="{{route('admin.store')}}" method="post" enctype="multipart/form-data">
-                                @csrf
+                            <form action="<?php echo e(route('admin.store')); ?>" method="post" enctype="multipart/form-data">
+                                <?php echo csrf_field(); ?>
                                 <div class="row py-2">
                                     <div class="col-md-4">
                                         <div class="form-group bmd-form-group">
@@ -61,7 +60,7 @@
             </div>
         </div>
 
-      @if(Auth::user()->type == '0')
+        <?php if(Auth::user()->type == '0'): ?>
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -83,34 +82,34 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @forelse($admins as $admin)
+                                        <?php $__empty_1 = true; $__currentLoopData = $admins; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $admin): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                             <tr role="row">
-                                                <td>{{$admin->id}}</td>
-                                                <td>{{$admin->name}}</td>
-                                                <td>{{$admin->email}}</td>
+                                                <td><?php echo e($admin->id); ?></td>
+                                                <td><?php echo e($admin->name); ?></td>
+                                                <td><?php echo e($admin->email); ?></td>
                                                 <td>
-                                                    @if($admin->status == "1")
+                                                    <?php if($admin->status == "1"): ?>
                                                         <h6 style="color: green">Activated</h6>
-                                                    @else
+                                                    <?php else: ?>
                                                         <h6 style="color: red">Deactivated</h6>
-                                                    @endif
+                                                    <?php endif; ?>
                                                 </td>
                                                 <td>
-                                                    @if($admin->status == "1")
-                                                        <a href="{{route('admin.deactivate', $admin->id)}}" class="btn btn-sm btn-danger">Deactivate</a>
-                                                    @else
-                                                        <a href="{{route('admin.activate', $admin->id)}}" class="btn btn-sm btn-success">Activate</a>
-                                                    @endif
-                                                    <a href="{{route('admin.edit', $admin->id)}}" class="btn btn-sm btn-warning">edit</a>
-                                                    <a href="{{route('admin.destroy', $admin->id)}}" class="btn btn-sm btn-danger">delete</a>
+                                                    <?php if($admin->status == "1"): ?>
+                                                        <a href="<?php echo e(route('admin.deactivate', $admin->id)); ?>" class="btn btn-sm btn-danger">Deactivate</a>
+                                                    <?php else: ?>
+                                                        <a href="<?php echo e(route('admin.activate', $admin->id)); ?>" class="btn btn-sm btn-success">Activate</a>
+                                                    <?php endif; ?>
+                                                    <a href="<?php echo e(route('admin.edit', $admin->id)); ?>" class="btn btn-sm btn-warning">edit</a>
+                                                    <a href="<?php echo e(route('admin.destroy', $admin->id)); ?>" class="btn btn-sm btn-danger">delete</a>
                                                 </td>
                                             </tr>
-                                        @empty
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                             <tr role="row">
                                                 <td colspan="3" style="text-align: center">No record found!</td>
 
                                             </tr>
-                                        @endforelse
+                                        <?php endif; ?>
 
                                         </tbody>
                                     </table>
@@ -120,17 +119,14 @@
                     </div>
                 </div>
             </div>
-        @else
+        <?php else: ?>
 
-        @endif
+        <?php endif; ?>
+
+
 
     </div>
 </div>
-@endsection
-@push('js')
-    <script>
-        $(document).ready(function() {
-            $('#driver_table').DataTable();
-        });
-    </script>
-@endpush
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app-admin', ['activePage' => 'dashboard', 'titlePage' => __('Dashboard')], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Volumes/LocalDisk2/Projects/Food Project/MyFoodApps/resources/views/admin/auth/register.blade.php ENDPATH**/ ?>

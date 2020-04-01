@@ -1,6 +1,5 @@
-@extends('layouts.admin.master')
-@section('breadcrumb-title', 'Admin Profile Edit')
-@section('content')
+<?php $__env->startSection('breadcrumb-title', 'Admin Profile Edit'); ?>
+<?php $__env->startSection('content'); ?>
 <div class="content">
     <div class="container-fluid">
         <div class="row">
@@ -11,21 +10,23 @@
 
                     </div>
                     <div class="card-body">
+
+
                         <div class="table-responsive">
-                            <form action="{{route('admin.profile.update')}}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                <input type="hidden" name="id" id="id" value="{{$admin->id}}">
+                            <form action="<?php echo e(route('admin.profile.update')); ?>" method="post" enctype="multipart/form-data">
+                                <?php echo csrf_field(); ?>
+                                <input type="hidden" name="id" id="id" value="<?php echo e($admin->id); ?>">
                                 <div class="row py-2">
                                     <div class="col-md-4">
                                         <div class="form-group bmd-form-group">
                                             <label for="admin_name" class="bmd-label-floating">Name</label>
-                                            <input type="text" class="form-control" name="admin_name" value="{{$admin->name}}" id="admin_name" required>
+                                            <input type="text" class="form-control" name="admin_name" value="<?php echo e($admin->name); ?>" id="admin_name" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group bmd-form-group">
                                             <label for="admin_email" class="bmd-label-floating">E-mail</label>
-                                            <input type="email" class="form-control" name="admin_email" value="{{$admin->email}}" id="admin_email" required>
+                                            <input type="email" class="form-control" name="admin_email" value="<?php echo e($admin->email); ?>" id="admin_email" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -58,11 +59,12 @@
             <div class="col-md-4">
                 <div class="card card-profile">
                     <div class="card-avatar">
-                        <img src="{{asset($admin->avatar)}}" alt="profile">
+                        <img src="<?php echo e(asset($admin->avatar)); ?>" alt="profile">
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">
-                            {{$admin->name}}
+                            <?php echo e($admin->name); ?>
+
                         </h4>
                         <p class="card-description">
                             Some description about the admin, i.e Its qualification and skills.
@@ -74,4 +76,6 @@
 
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.admin.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Volumes/LocalDisk2/Projects/Food Project/MyFoodApps/resources/views/admin/profile/edit.blade.php ENDPATH**/ ?>

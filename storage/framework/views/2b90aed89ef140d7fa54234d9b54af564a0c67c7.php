@@ -1,10 +1,9 @@
-@extends('layouts.admin.master')
-@section('breadcrumb-title', 'All Customers')
+<?php $__env->startSection('breadcrumb-title', 'All Customers'); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="content">
     <div class="container-fluid">
-        @include("flashMessages")
+        <?php echo $__env->make("flashMessages", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -31,39 +30,39 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse($customers as $customer)
+                                        <?php $__empty_1 = true; $__currentLoopData = $customers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $customer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                         <tr role="row">
-                                            <td>{{$customer->id}}</td>
-                                            <td>{{$customer->name}}</td>
-                                            <td>{{$customer->email}}</td>
-                                            <td>{{$customer->address}}</td>
-                                            <td>{{$customer->phone}}</td>
-                                            <td>{{$customer->dob}}</td>
-                                            <td>{{$customer->gender}}</td>
-                                            <td>{{$customer->area_code}}</td>
+                                            <td><?php echo e($customer->id); ?></td>
+                                            <td><?php echo e($customer->name); ?></td>
+                                            <td><?php echo e($customer->email); ?></td>
+                                            <td><?php echo e($customer->address); ?></td>
+                                            <td><?php echo e($customer->phone); ?></td>
+                                            <td><?php echo e($customer->dob); ?></td>
+                                            <td><?php echo e($customer->gender); ?></td>
+                                            <td><?php echo e($customer->area_code); ?></td>
                                             <td>
-                                                @if($customer->status == "1")
+                                                <?php if($customer->status == "1"): ?>
                                                 <h6 style="color: green">Activated</h6>
-                                                @else
+                                                <?php else: ?>
                                                 <h6 style="color: red">Deactivated</h6>
-                                                @endif
+                                                <?php endif; ?>
                                             </td>
                                             <td>
-                                                @if($customer->status == "1")
-                                                <a href="{{route('admin.customer.deactivate', $customer->id)}}" class="btn btn-sm btn-danger">Deactivate</a>
-                                                @else
-                                                <a href="{{route('admin.customer.activate', $customer->id)}}" class="btn btn-sm btn-success">Activate</a>
-                                                @endif
+                                                <?php if($customer->status == "1"): ?>
+                                                <a href="<?php echo e(route('admin.customer.deactivate', $customer->id)); ?>" class="btn btn-sm btn-danger">Deactivate</a>
+                                                <?php else: ?>
+                                                <a href="<?php echo e(route('admin.customer.activate', $customer->id)); ?>" class="btn btn-sm btn-success">Activate</a>
+                                                <?php endif; ?>
 
-                                                <a href="{{route('admin.customer.destroy', $customer->id)}}" class="btn btn-sm btn-danger">delete</a>
+                                                <a href="<?php echo e(route('admin.customer.destroy', $customer->id)); ?>" class="btn btn-sm btn-danger">delete</a>
                                             </td>
                                         </tr>
-                                        @empty
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <tr role="row">
                                             <td colspan="3" style="text-align: center">No record found!</td>
 
                                         </tr>
-                                        @endforelse
+                                        <?php endif; ?>
 
                                     </tbody>
                                 </table>
@@ -76,11 +75,13 @@
 
     </div>
 </div>
-@endsection
-@push('js')
+<?php $__env->stopSection(); ?>
+<?php $__env->startPush('js'); ?>
     <script>
         $(document).ready(function() {
             $('#customer_table').DataTable();
         });
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('layouts.admin.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Volumes/LocalDisk2/Projects/Food Project/MyFoodApps/resources/views/admin/customer/viewAll.blade.php ENDPATH**/ ?>

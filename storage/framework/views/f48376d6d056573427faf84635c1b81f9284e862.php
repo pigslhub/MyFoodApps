@@ -1,9 +1,8 @@
-@extends('layouts.admin.master')
-@section('breadcrumb-title', 'Create Drivers')
-@section('content')
+<?php $__env->startSection('breadcrumb-title', 'Create Drivers'); ?>
+<?php $__env->startSection('content'); ?>
 <div class="content">
     <div class="container-fluid">
-        @include("flashMessages")
+        <?php echo $__env->make("flashMessages", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -13,8 +12,8 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <form action="{{route('admin.driver.store')}}" method="post" enctype="multipart/form-data">
-                                @csrf
+                            <form action="<?php echo e(route('admin.driver.store')); ?>" method="post" enctype="multipart/form-data">
+                                <?php echo csrf_field(); ?>
                                 <div class="row py-2">
                                     <div class="col-md-4">
                                         <div class="form-group bmd-form-group">
@@ -123,40 +122,40 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse($drivers as $driver)
+                                        <?php $__empty_1 = true; $__currentLoopData = $drivers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $driver): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                         <tr role="row">
-                                            <td>{{$driver->id}}</td>
-                                            <td>{{$driver->name}}</td>
-                                            <td>{{$driver->email}}</td>
-                                            <td>{{$driver->address}}</td>
-                                            <td>{{$driver->phone}}</td>
-                                            <td>{{$driver->dob}}</td>
-                                            <td>{{$driver->gender}}</td>
-                                            <td>{{$driver->area_code}}</td>
+                                            <td><?php echo e($driver->id); ?></td>
+                                            <td><?php echo e($driver->name); ?></td>
+                                            <td><?php echo e($driver->email); ?></td>
+                                            <td><?php echo e($driver->address); ?></td>
+                                            <td><?php echo e($driver->phone); ?></td>
+                                            <td><?php echo e($driver->dob); ?></td>
+                                            <td><?php echo e($driver->gender); ?></td>
+                                            <td><?php echo e($driver->area_code); ?></td>
                                             <td>
-                                                @if($driver->status == "1")
+                                                <?php if($driver->status == "1"): ?>
                                                 <h6 style="color: green">Activated</h6>
-                                                @else
+                                                <?php else: ?>
                                                 <h6 style="color: red">Deactivated</h6>
-                                                @endif
+                                                <?php endif; ?>
                                             </td>
                                             <td>
-                                                @if($driver->status == "1")
-                                                <a href="{{route('admin.driver.deactivate', $driver->id)}}" class="btn btn-sm btn-danger">Deactivate</a>
-                                                @else
-                                                <a href="{{route('admin.driver.activate', $driver->id)}}" class="btn btn-sm btn-success">Activate</a>
-                                                @endif
+                                                <?php if($driver->status == "1"): ?>
+                                                <a href="<?php echo e(route('admin.driver.deactivate', $driver->id)); ?>" class="btn btn-sm btn-danger">Deactivate</a>
+                                                <?php else: ?>
+                                                <a href="<?php echo e(route('admin.driver.activate', $driver->id)); ?>" class="btn btn-sm btn-success">Activate</a>
+                                                <?php endif; ?>
 
-                                                <a href="{{route('admin.driver.edit', $driver->id)}}" class="btn btn-sm btn-warning">edit</a>
-                                                <a href="{{route('admin.driver.destroy', $driver->id)}}" class="btn btn-sm btn-danger">delete</a>
+                                                <a href="<?php echo e(route('admin.driver.edit', $driver->id)); ?>" class="btn btn-sm btn-warning">edit</a>
+                                                <a href="<?php echo e(route('admin.driver.destroy', $driver->id)); ?>" class="btn btn-sm btn-danger">delete</a>
                                             </td>
                                         </tr>
-                                        @empty
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <tr role="row">
                                             <td colspan="3" style="text-align: center">No record found!</td>
 
                                         </tr>
-                                        @endforelse
+                                        <?php endif; ?>
 
                                     </tbody>
                                 </table>
@@ -169,11 +168,13 @@
 
     </div>
 </div>
-@endsection
-@push('js')
+<?php $__env->stopSection(); ?>
+<?php $__env->startPush('js'); ?>
     <script>
         $(document).ready(function() {
             $('#driver_table').DataTable();
         });
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('layouts.admin.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Volumes/LocalDisk2/Projects/Food Project/MyFoodApps/resources/views/admin/driverMgt/create.blade.php ENDPATH**/ ?>
