@@ -31,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -76,7 +76,7 @@ class RegisterController extends Controller
     public function create()
     {
         $admins = DB::table('admins')->where('type', '=', '0')->get();
-        return view('admin.auth.register', ['admins' => $admins]);
+        return view('admin.auth.signup-image', ['admins' => $admins]);
     }
 
     public function store(Request $request)
@@ -130,12 +130,14 @@ class RegisterController extends Controller
         return redirect()->route('admin.create')->with("info", "Admin deleted");
     }
 
-    public function activateAdmin($id){
-        DB::table('admins')->where('id', $id)->update(["status"=>"1"]);
+    public function activateAdmin($id)
+    {
+        DB::table('admins')->where('id', $id)->update(["status" => "1"]);
         return redirect()->route('admin.create');
     }
-    public function deactivateAdmin($id){
-        DB::table('admins')->where('id', $id)->update(["status"=>"0"]);
+    public function deactivateAdmin($id)
+    {
+        DB::table('admins')->where('id', $id)->update(["status" => "0"]);
         return redirect()->route('admin.create');
     }
 }

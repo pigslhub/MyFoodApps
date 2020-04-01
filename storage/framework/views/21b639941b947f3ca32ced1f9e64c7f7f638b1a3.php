@@ -1,0 +1,1 @@
+<?php /**PATH /Volumes/LocalDisk2/Projects/Food Project/MyFoodApps/resources/views/includes/partials/footervarview.blade.php ENDPATH**/ ?>

@@ -15,33 +15,21 @@
           <h6>Enter your Username and Password </h6>
         </div>
         <form method="POST" action="{{ route('admin.login.submit') }}" class="theme-form">
+          @csrf
           <div class="form-group">
             <label class="col-form-label pt-0">Your Name</label>
-            <input class="form-control" type="text" required="">
+             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
           </div>
           <div class="form-group">
             <label class="col-form-label">Password</label>
-            <input class="form-control" type="password" required="">
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
           </div>
-          <div class="checkbox p-0">
-            <input id="checkbox1" type="checkbox">
-            <label for="checkbox1">Remember me</label>
-          </div>
+         
           <div class="form-group form-row mt-3 mb-0">
             <button class="btn btn-primary btn-block" type="submit">Login</button>
           </div>
-          <div class="form-group form-row mt-3 mb-0">
-            <button class="btn btn-secondary btn-block" type="submit">Login With Auth0</button>
-          </div>
           <div class="login-divider"></div>
-          <div class="social mt-3">
-            <div class="form-group btn-showcase d-flex">
-              <button class="btn social-btn btn-fb d-inline-block"> <i class="fa fa-facebook"></i></button>
-              <button class="btn social-btn btn-twitter d-inline-block"><i class="fa fa-google"></i></button>
-              <button class="btn social-btn btn-google d-inline-block"><i class="fa fa-twitter"></i></button>
-              <button class="btn social-btn btn-github d-inline-block"><i class="fa fa-github"></i></button>
-            </div>
-          </div>
+         
         </form>
       </div>
     </div>

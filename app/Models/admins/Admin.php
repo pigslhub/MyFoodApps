@@ -55,4 +55,24 @@ class Admin extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public function getAvatarAttribute()
+    {
+        $default_path = 'public/assets/images/user/user.png';
+
+        $path = $this->avatar ? $this->avatar : $default_path;
+
+        return asset($path);
+    }
+
+    public function getNameAttribute()
+    {
+        $adminname = $this->name ? $this->avatar : "Admin";
+        return $adminname;
+    }
+    public function getEmailAttribute()
+    {
+        $adminemail = $this->email ? $this->email : "Your Email Here";
+        return $adminemail;
+    }
 }

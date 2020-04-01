@@ -5,24 +5,73 @@
   </div>
   <div class="sidebar custom-scrollbar">
     <div class="sidebar-user text-center">
-      <div><img class="img-60 rounded-circle" src="{{asset('assets/images/user/1.jpg')}}" alt="#">
+      <div><img class="img-60 rounded-circle" src="{{auth('admin')->user()->avatar}}" alt="#">
         <div class="profile-edit"><a href="#" target="_blank"><i data-feather="edit"></i></a></div>
       </div>
-      <h6 class="mt-3 f-14">ELANA</h6>
-      <p>general manager.</p>
+    <h6 class="mt-3 f-14">{{auth('admin')->user()->name}}</h6>
+      <p>{{auth('admin')->user()->email}}</p>
     </div>
       <ul class="sidebar-menu">
-          <li><a class="sidebar-header" href="#" target="_blank"><i data-feather="home"></i><span>Admin Dashboard</span></a></li>
-          <li class="active"><a class="sidebar-header" href="#"><i data-feather="anchor"></i><span>Starter Kit</span><i class="fa fa-angle-right pull-right"></i></a>
-              <ul class="sidebar-submenu">
-                  <li class="active"><a href="#"><i class="fa fa-circle"></i>color version<i class="fa fa-angle-down pull-right"></i></a>
-                      <ul class="sidebar-submenu">
-                          <li><a class="active" href="#"><i class="fa fa-circle"></i>Layout Light</a></li>
-                      </ul>
-                  </li>
-              </ul>
-          </li>
-          <li><a class="sidebar-header" href="#" target="_blank"><i data-feather="file-text"></i><span>Documentation</span></a></li>
+        
+            <li>
+                <a class="sidebar-header" href="{{route('admin.home')}}">
+                    <i data-feather="home"></i><span>Dashboard</span>
+                </a>
+            </li>
+            
+             <li>
+                <a class="sidebar-header" href="{{route('admin.create')}}">
+                    <i data-feather="home"></i><span>Admins</span>
+                </a>
+            </li>
+            
+            <li>
+                <a class="sidebar-header" href="{{route('admin.customer.create')}}">
+                    <i data-feather="home"></i><span>Customers</span>
+                </a>
+            </li>
+
+            {{-- <li class="nav-item {{request()->routeIs('admin.category.create')? 'active':''}}">
+                <a href="{{route('admin.category.create')}}" class="nav-link" target="">
+                    <i class="fa fa-copy"></i>
+                    <p>Categories</p>
+                </a>
+            </li>
+           
+           
+            <li>
+                <a class="sidebar-header" href="{{route('admin.service.create')}}" >
+                    <i data-feather="home"></i><span>Services</span>
+                </a>
+            </li>
+           
+            <li>
+                <a class="sidebar-header" href="{{route('admin.shopType.create')}}" >
+                    <i data-feather="home"></i><span>Shop Types</span>
+                </a>
+            </li> --}}
+            <li>
+                <a class="sidebar-header" href="{{route('admin.shop.create')}}">
+                    <i data-feather="home"></i><span>Shops</span>
+                </a>
+            </li>
+            <li>
+                <a class="sidebar-header" href="{{route('admin.driver.create')}}">
+                    <i data-feather="home"></i><span>Drivers</span>
+                </a>
+            </li> 
+           
+            <li>
+                <a class="sidebar-header" href="{{route('admin.conversations.create')}}">
+                    <i data-feather="home"></i><span>Conversations</span>
+                </a>
+            </li>  
+            <li>
+                <a class="sidebar-header" href="{{route('admin.order.viewAll')}}">
+                    <i data-feather="home"></i><span>Orders</span>
+                </a>
+            </li>  
+        
       </ul>
   </div>
 </div>

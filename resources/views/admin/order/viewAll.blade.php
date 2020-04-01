@@ -1,5 +1,5 @@
-@extends('layouts.app-admin', ['activePage' => 'dashboard', 'titlePage' => __('Dashboard')])
-@section('pageName', 'All Orders')
+@extends('layouts.admin.master')
+@section('breadcrumb-title', 'All Orders')
 @section('content')
 <div class="content">
     <div class="container-fluid">
