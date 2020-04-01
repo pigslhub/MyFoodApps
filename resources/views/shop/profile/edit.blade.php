@@ -78,7 +78,6 @@
                                     <input class="form-control" type="text" name="shop_address" id="shop_address" value="{{$shop->address}}" placeholder="Home Address" required>
                                 </div>
                             </div>
-
                             <div class="col-md-12">
                                 <div class="form-group mb-0">
                                     <label for="about" class="form-label">About Me</label>
