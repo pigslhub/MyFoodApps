@@ -14,7 +14,7 @@ class LoginController extends Controller
     }
 
     public function showLoginForm(){
-        return view('driver.auth.login');
+        return view('driver.auth.login-image');
     }
 
     public function login(Request $request){
