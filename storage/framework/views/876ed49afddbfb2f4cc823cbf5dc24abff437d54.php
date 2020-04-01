@@ -10,8 +10,6 @@
 
                     </div>
                     <div class="card-body">
-
-
                         <div class="table-responsive">
                             <form action="<?php echo e(route('admin.profile.update')); ?>" method="post" enctype="multipart/form-data">
                                 <?php echo csrf_field(); ?>
@@ -37,7 +35,7 @@
                                     </div>
                                 </div>
                                 <div class="row py-2">
-                                    <div class="col-md-4">
+                                    <div class="col-md-12">
                                         <div>
                                             <label for="admin_image" class="bmd-label-floating">Image</label>
                                             <input type="file" class="form-control" name="admin_image" id="admin_image">
@@ -47,7 +45,7 @@
                                 </div>
 
                                 <div class="row py-2">
-                                    <div class="col-md-3">
+                                    <div class="col-md-12">
                                         <input type="submit" value="Update Profile" class="btn btn-block btn-primary pull-right">
                                     </div>
                                 </div>

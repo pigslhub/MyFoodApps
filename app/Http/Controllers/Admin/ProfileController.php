@@ -28,11 +28,11 @@ class ProfileController extends Controller
         if ($request->file('admin_image')) {
             $avatar = $request->file('admin_image');
             $fileName = time() . '.' . $avatar->getClientOriginalName() . '.' . $avatar->getClientOriginalExtension();
-            $path = public_path('/images/admins/' . $fileName);
+            $path = public_path('/assets/images/admins/' . $fileName);
             (new ImageManager)->make($avatar->getRealPath())->resize(300, 300)->save($path);
-            $avatar->move(public_path() . '/images/admins/', $fileName);
+            // $avatar->move(public_path() . '/assets/images/admins/', $fileName);
 
-            $fileNameWithPath = 'images/admins/' . $fileName;
+            $fileNameWithPath = '/assets/images/admins/' . $fileName;
 
             //            (new \Intervention\Image\Image)->make($avatar)->save(public_path('/images/shops/'.$fileName));
 

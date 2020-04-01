@@ -5,11 +5,11 @@
   </div>
   <div class="sidebar custom-scrollbar">
     <div class="sidebar-user text-center">
-      <div><img class="img-60 rounded-circle" src="{{asset('assets/images/user/1.jpg')}}" alt="#">
+      <div><img class="img-60 rounded-circle" src="{{auth('admin')->user()->avatar}}" alt="#">
         <div class="profile-edit"><a href="#" target="_blank"><i data-feather="edit"></i></a></div>
       </div>
-      <h6 class="mt-3 f-14">ELANA</h6>
-      <p>general manager.</p>
+    <h6 class="mt-3 f-14">{{auth('admin')->user()->name}}</h6>
+      <p>{{auth('admin')->user()->email}}</p>
     </div>
       <ul class="sidebar-menu">
         

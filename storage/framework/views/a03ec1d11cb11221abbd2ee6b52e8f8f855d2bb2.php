@@ -35,7 +35,6 @@ endif; ?>" name="password" required autocomplete="current-password">
           <div class="form-group form-row mt-3 mb-0">
             <button class="btn btn-primary btn-block" type="submit">Login</button>
           </div>
-         
           <div class="login-divider"></div>
          
         </form>
