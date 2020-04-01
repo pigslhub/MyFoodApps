@@ -10,7 +10,7 @@
     <div class="card mt-4">
       <div class="card-body">
         <div class="text-center">
-          <h4>LOGIN</h4>
+          <h4>SHOP LOGIN</h4>
           <h6>Enter your Username and Password </h6>
         </div>
         <form class="theme-form">
