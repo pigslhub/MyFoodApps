@@ -1,9 +1,8 @@
-@extends('layouts.shop.master')
-@section('breadcrumb-title', 'Category')
-@section('content')
+<?php $__env->startSection('breadcrumb-title', 'Category'); ?>
+<?php $__env->startSection('content'); ?>
     <div class="content">
         <div class="container-fluid">
-            @include("flashMessages")
+            <?php echo $__env->make("flashMessages", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
             <div class="row">
                 <div class="col-md-12">
@@ -24,20 +23,20 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @forelse($categories as $category)
+                                        <?php $__empty_1 = true; $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                             <tr role="row">
-                                                <td>{{$category->id}}</td>
-                                                <td>{{$category->name}}</td>
+                                                <td><?php echo e($category->id); ?></td>
+                                                <td><?php echo e($category->name); ?></td>
                                                 <td>
-                                                    <a href="{{route('shop.showMyServices', $category->id)}}" class="btn btn-sm btn-warning">View more</a>
+                                                    <a href="<?php echo e(route('shop.showMyServices', $category->id)); ?>" class="btn btn-sm btn-warning">View more</a>
                                                 </td>
                                             </tr>
-                                        @empty
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                             <tr role="row">
                                                 <td colspan="3" style="text-align: center">No record found!</td>
 
                                             </tr>
-                                        @endforelse
+                                        <?php endif; ?>
 
                                         </tbody>
                                     </table>
@@ -50,11 +49,13 @@
 
         </div>
     </div>
-@endsection
-@push('js')
+<?php $__env->stopSection(); ?>
+<?php $__env->startPush('js'); ?>
     <script>
         $(document).ready(function() {
             $('#category_table').DataTable();
         });
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('layouts.shop.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Sir Imran\MyFoodApps\resources\views/shop/shopMgt/category/viewCategory.blade.php ENDPATH**/ ?>

@@ -1,9 +1,8 @@
-@extends('layouts.shop.master')
-@section('breadcrumb-title', 'Advertisement')
-@section('content')
+<?php $__env->startSection('breadcrumb-title', 'Advertisement'); ?>
+<?php $__env->startSection('content'); ?>
 <div class="content">
     <div class="container-fluid">
-        @include("flashMessages")
+        <?php echo $__env->make("flashMessages", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -12,8 +11,8 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <form action="{{route('shop.advertisement.store')}}" method="post" enctype="multipart/form-data">
-                                @csrf
+                            <form action="<?php echo e(route('shop.advertisement.store')); ?>" method="post" enctype="multipart/form-data">
+                                <?php echo csrf_field(); ?>
                                 <div class="row py-2">
                                     <div class="col-md-4">
                                         <div class="form-group bmd-form-group">
@@ -86,28 +85,28 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @forelse($advertisements as $advertisement)
+                                        <?php $__empty_1 = true; $__currentLoopData = $advertisements; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $advertisement): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                         <tr role="row">
-                                            <td>{{$advertisement->id}}</td>
-                                            <td>{{$advertisement->title}}</td>
-                                            <td>{{$advertisement->description}}</td>
-                                            <td>{{$advertisement->due_date}}</td>
+                                            <td><?php echo e($advertisement->id); ?></td>
+                                            <td><?php echo e($advertisement->title); ?></td>
+                                            <td><?php echo e($advertisement->description); ?></td>
+                                            <td><?php echo e($advertisement->due_date); ?></td>
                                             <td>
-                                                @if($advertisement->status == 1)
+                                                <?php if($advertisement->status == 1): ?>
                                                     Active
-                                                @else
+                                                <?php else: ?>
                                                     Not Active
-                                                @endif
+                                                <?php endif; ?>
                                             <td>
-                                                <a href="{{route('shop.advertisement.edit', $advertisement->id)}}" class="btn btn-sm btn-warning">edit</a>
+                                                <a href="<?php echo e(route('shop.advertisement.edit', $advertisement->id)); ?>" class="btn btn-sm btn-warning">edit</a>
                                             </td>
                                         </tr>
-                                        @empty
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                         <tr role="row">
                                             <td colspan="3">No record found!</td>
 
                                         </tr>
-                                        @endforelse
+                                        <?php endif; ?>
 
                                     </tbody>
                                 </table>
@@ -120,11 +119,13 @@
 
     </div>
 </div>
-@endsection
-@push('js')
+<?php $__env->stopSection(); ?>
+<?php $__env->startPush('js'); ?>
     <script>
         $(document).ready(function() {
             $('#advertisement_table').DataTable();
         });
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('layouts.shop.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\Sir Imran\MyFoodApps\resources\views/shop/advertisement/create.blade.php ENDPATH**/ ?>
