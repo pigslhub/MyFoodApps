@@ -1,0 +1,1 @@
+<?php /**PATH E:\Projects\endless_laravel\resources\views/includes/partials/footervarview.blade.php ENDPATH**/ ?>
