@@ -14,7 +14,7 @@ class LoginController extends Controller
     }
 
     public function showLoginForm(){
-        return view('shop.auth.login');
+        return view('shop.auth.login-image');
     }
 
     public function login(Request $request){
