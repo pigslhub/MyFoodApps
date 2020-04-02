@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    @include('includes.partials.head')
+    @include('includes.partials.default.head')
 
-    <title>@yield('title') | Endless - Premium Admin Template</title>
-    @include('includes.partials.styles')
+    <title>@yield('title')</title>
+    @include('includes.partials.default.styles')
   </head>
   <body>
 
     @yield('main')
 
-    @include('includes.partials.scripts')
-    @include('includes.partials.footervarview')
+    @include('includes.partials.default.footervarview')
+    @include('includes.partials.default.scripts')
   </body>
 
 </html>
