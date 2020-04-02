@@ -1,5 +1,5 @@
-@extends('layouts.shop.master')
-@section('breadcrumb-title', 'Chat')
+@extends('layouts.app-shop', ['activePage' => 'dashboard', 'titlePage' => __('Dashboard')])
+@section('pageName', 'View Chats')
 @section('content')
     <div class="content">
         <div class="container-fluid">
@@ -18,7 +18,7 @@
                                 <th>Problem</th>
                                 <th>Action</th>
                             </tr>
-
+                            
                             @forelse($conversations as $conversation)
                             <tr>
                                 <th>{{$conversation->id}}</th>
@@ -28,7 +28,7 @@
                                                 </video></th>
                                 <th><a class="btn btn-sm btn-primary" href="{{route('shop.conversation.chat', $conversation->id)}}">View Chat</a></th>
                             </tr>
-
+                                    
                                 @empty
                                     <div class="row">
                                         <div class="col-md-12 justify-content-center">
@@ -50,7 +50,7 @@
                         </div>
                         <div class="card-body">
                             <div class="row" style="height:400px;overflow-y: scroll" id="chatDetails">
-
+                            
                              </div>
                                      <div class="row" style="border-top: 1px solid #0e2b57;">
                                          <div class="col-md-12">
