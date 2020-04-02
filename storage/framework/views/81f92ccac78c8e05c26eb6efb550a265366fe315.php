@@ -12,7 +12,7 @@
                                     <h3><?php echo $__env->yieldContent('breadcrumb-title'); ?></h3>
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#"><i data-feather="home"></i></a></li>
-                                        <?php echo $__env->yieldContent('breadcrumb-item'); ?>
+                                        <?php echo $__env->yieldContent('breadcrumb-items'); ?>
                                     </ol>
                                 </div>
                             </div>
