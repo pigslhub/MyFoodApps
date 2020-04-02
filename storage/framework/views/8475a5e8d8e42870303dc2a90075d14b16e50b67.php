@@ -59,7 +59,7 @@
         </li>
         <li><a href="#"><i class="right_side_toggle" data-feather="message-circle"></i><span class="dot"></span></a></li>
         <li class="onhover-dropdown">
-          <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle" src="<?php echo e(asset('assets/images/dashboard/user.png')); ?>" alt="header-user">
+          <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle" src="<?php echo e(auth('shop')->user()->avatar); ?>" alt="header-user">
             <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
           </div>
           <ul class="profile-dropdown onhover-show-div p-20">

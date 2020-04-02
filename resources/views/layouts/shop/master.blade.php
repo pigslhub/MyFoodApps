@@ -14,7 +14,7 @@
                                     <h3>@yield('breadcrumb-title')</h3>
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#"><i data-feather="home"></i></a></li>
-                                        @yield('breadcrumb-item')
+                                        @yield('breadcrumb-items')
                                     </ol>
                                 </div>
                             </div>

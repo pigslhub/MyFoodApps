@@ -32,4 +32,47 @@ class Shop extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    // Rest omitted for brevity
+
+    /**
+     * Get the identifier that will be stored in the subject claim of the JWT.
+     *
+     * @return mixed
+     */
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+    public function getAvatarAttribute()
+    {
+        $default_path = 'public/assets/images/user/user.png';
+
+        $path = $this->avatar ? $this->avatar : $default_path;
+
+        return asset($path);
+    }
+
+    public function getNameAttribute()
+    {
+        $adminname = $this->name ? $this->name : "Resturant";
+        return $adminname;
+    }
+    public function getEmailAttribute()
+    {
+        $adminemail = $this->email ? $this->email : "Your Email Here";
+        return $adminemail;
+    }
 }

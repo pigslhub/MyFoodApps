@@ -12,7 +12,7 @@
     <div class="nav-right col p-0">
       <ul class="nav-menus">
         <li></li>
-        <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
+        <li><a class="text-dark" href="#!" onclick="toggleFullScreen()"><i data-feather="maximize"></i></a></li>
         <li class="onhover-dropdown"><i data-feather="bell"></i><span class="dot"></span>
           <ul class="notification-dropdown onhover-show-div">
             <li>Notification <span class="badge badge-pill badge-primary pull-right">3</span></li>
@@ -24,11 +24,11 @@
                 </div>
               </div>
             </li>
-            
+
             <li class="bg-light txt-dark"><a href="#">All</a> notification</li>
           </ul>
         </li>
-      
+
         <li class="onhover-dropdown">
           <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle" src="{{auth('admin')->user()->avatar}}" alt="header-user">
             <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
@@ -43,14 +43,14 @@
     </div>
     <script id="result-template" type="text/x-handlebars-template">
       <div class="ProfileCard u-cf">
-      
+
       <div class="ProfileCard-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay m-0"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg></div>
       <div class="ProfileCard-details">
       <div class="ProfileCard-realName">@{{name}}</div>
       </div>
       </div>
     </script>
-   
+
   </div>
 </div>
 <!-- Page Header Ends -->
