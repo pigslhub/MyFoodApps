@@ -1,0 +1,2 @@
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<?php /**PATH /Volumes/LocalDisk2/Projects/Food Project/MyFoodApps/resources/views/includes/partials/default/head.blade.php ENDPATH**/ ?>

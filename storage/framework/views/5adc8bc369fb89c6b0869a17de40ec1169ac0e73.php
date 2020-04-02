@@ -1,31 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>MyFoodApp | Food Delivery Hub</title>
+<?php $__env->startSection('title', 'MyFoodApp | Food Delivery Hub'); ?>
+<?php $__env->startSection('style'); ?>
+
+<?php $__env->startSection('main'); ?>
     
-    <link type="text/css" href="<?php echo e(asset('assets/ast/css/bootstrap.min.css')); ?>" rel="stylesheet">
-    <!-- Fontawesome -->
-    <link type="text/css" href="<?php echo e(asset('assets/ast/css/font-awesome.css')); ?>" rel="stylesheet">
-    <!-- Flaticons -->
-    <link  type="text/css"href="<?php echo e(asset('assets/ast/css/font/flaticon.css')); ?>" rel="stylesheet">
-    <!-- Swiper Slider -->
-    <link type="text/css" href="<?php echo e(asset('assets/ast/css/swiper.min.css')); ?>" rel="stylesheet">
-    <!-- Range Slider -->
-    <link type="text/css" href="<?php echo e(asset('assets/ast/css/ion.rangeSlider.min.css')); ?>" rel="stylesheet">
-    <!-- magnific popup -->
-    <link type="text/css" href="<?php echo e(asset('assets/ast/css/magnific-popup.css')); ?>" rel="stylesheet">
-    <!-- Nice Select -->
-    <link type="text/css" href="<?php echo e(asset('assets/ast/css/nice-select.css')); ?>" rel="stylesheet">
-    <!-- Custom Stylesheet -->
-    <link type="text/css" href="<?php echo e(asset('assets/ast/css/style.css')); ?>" rel="stylesheet">
-    <!-- Custom Responsive -->
-    <link type="text/css" href="<?php echo e(asset('assets/ast/css/responsive.css')); ?>" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap" rel="stylesheet">
-    <!-- place -->
-</head>
-<body>
+
     <!-- Navigation -->
     <div class="header">
         <header class="full-width">
@@ -351,97 +329,8 @@
             </div>
         </div>
     </div>
-    <footer class="section-padding bg-light-theme pt-0 u-line bg-black">
-        
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl col-lg-4 col-md-4 col-sm-6">
-                    <div class="footer-contact">
-                        <h6 class="text-custom-white">Need Help</h6>
-                        <ul>
-                            <li class="fw-600"><span class="text-light-white">Call Us</span> <a href="tel:/" class="text-custom-white">+(347) 123 456 789</a>
-                            </li>
-                            <li class="fw-600"><span class="text-light-white">Email Us</span> <a href="mailto:/" class="text-custom-white">demo@domain.com</a>
-                            </li>
-                            <li class="fw-600"><span class="text-light-white">Join our twitter</span> <a href="#" class="text-custom-white">@munchbox</a>
-                            </li>
-                            <li class="fw-600"><span class="text-light-white">Join our instagram</span> <a href="#" class="text-custom-white">@munchbox</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-xl col-lg-4 col-md-4 col-sm-6">
-                    <div class="footer-links">
-                        <h6 class="text-custom-white">Download Apps</h6>
-                        <div class="appimg">
-                            <a href="#">
-                                <img src="<?php echo e(asset('assets/ast/img/playstore.jpg ')); ?>" class="img-fluid" alt="app logo">
-                            </a>
-                        </div>
-                        <div class="appimg">
-                            <a href="#">
-                                <img src="<?php echo e(asset('assets/ast/img/appstore.jpg ')); ?>" class="img-fluid" alt="app logo">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl col-lg-4 col-md-4 col-sm-6">
-                    <div class="footer-contact">
-                        <h6 class="text-custom-white">Newsletter</h6>
-                        <form class="subscribe_form">
-                            <div class="input-group">
-                                <input type="text" class="form-control form-control-submit" name="email" placeholder="Enter your email">
-                                <span class="input-group-btn">
-                      <button class="btn btn-second btn-submit" type="button"><i class="fas fa-paper-plane"></i></button>
-                 </span>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="ft-social-media">
-                        <h6 class="text-center text-light-black">Follow us</h6>
-                        <ul>
-                            <li> <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            </li>
-                            <li> <a href="#"><i class="fab fa-twitter"></i></a>
-                            </li>
-                            <li> <a href="#"><i class="fab fa-instagram"></i></a>
-                            </li>
-                            <li> <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                            </li>
-                            <li> <a href="#"><i class="fab fa-youtube"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-  
-    <!-- footer -->
-    <!-- modal boxes -->
-    
-    <!-- Place all Scripts Here -->
-    <!-- jQuery -->
-    <script defer src="<?php echo e(asset('assets/ast/js/jquery.min.js')); ?>"></script>
-    <!-- Popper -->
-    <script defer src="<?php echo e(asset('assets/ast/js/popper.min.js')); ?>"></script>
-    <!-- Bootstrap -->
-    <script defer src="<?php echo e(asset('assets/ast/js/bootstrap.min.js')); ?>"></script>
-    <!-- Range Slider -->
-    <script defer src="<?php echo e(asset('assets/ast/js/ion.rangeSlider.min.js')); ?>"></script>
-    <!-- Swiper Slider -->
-    <script defer src="<?php echo e(asset('assets/ast/js/swiper.min.js')); ?>"></script>
-    <!-- Nice Select -->
-    <script defer src="<?php echo e(asset('assets/ast/js/jquery.nice-select.min.js')); ?>"></script>
-    <!-- magnific popup -->
-    <script defer src="<?php echo e(asset('assets/ast/js/jquery.magnific-popup.min.js')); ?>"></script>
-   
-    <!-- sticky sidebar -->
-    <script defer src="<?php echo e(asset('assets/ast/js/sticksy.js')); ?>"></script>
-    <!-- Munch Box Js -->
-    <script defer src="<?php echo e(asset('assets/ast/js/munchbox.js')); ?>"></script>
-    <!-- /Place all Scripts Here -->
-</html><?php /**PATH /Volumes/LocalDisk2/Projects/Food Project/MyFoodApps/resources/views/default.blade.php ENDPATH**/ ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Volumes/LocalDisk2/Projects/Food Project/MyFoodApps/resources/views/default.blade.php ENDPATH**/ ?>
