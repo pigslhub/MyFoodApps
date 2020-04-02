@@ -24,6 +24,7 @@ class CreateShopsTable extends Migration
             $table->string('address');
             $table->string('phone')->unique();
             $table->string('area_code');
+            $table->string('about')->nullable();
             $table->string('status');
             $table->double('commision');
             $table->bigInteger('shop_type_id')->unsigned();

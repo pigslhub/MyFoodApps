@@ -13,8 +13,9 @@
                         <div class="card-options"><a class="card-options-collapse" href="#" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-toggle="card-remove"><i class="fe fe-x"></i></a></div>
                     </div>
                     <div class="card-body">
-                        <form action="" method="post">
+                        <form action="<?php echo e(route('shop.profile.updateEmailAndPassword')); ?>" method="post">
                             <?php echo csrf_field(); ?>
+                            <input type="hidden" name="id" id="id" value="<?php echo e($shop->id); ?>">
                             <div class="row mb-2">
                                 <div class="col-auto"><img class="img-70 rounded-circle" alt="" src="<?php echo e(auth('shop')->user()->avatar); ?>"></div>
                                 <div class="col">
@@ -24,11 +25,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="shop_email" class="form-label">Email-Address</label>
-                                <input type="email" class="form-control" name="shop_email" id="shop_email" value="<?php echo e($shop->email); ?>" placeholder="your-email@domain.com">
+                                <input type="email" class="form-control" name="shop_email" id="shop_email" value="<?php echo e($shop->email); ?>" placeholder="your-email@domain.com" required>
                             </div>
                             <div class="form-group">
                                 <label for="shop_password" class="form-label">Password</label>
-                                <input class="form-control" type="password" name="shop_password" id="shop_password">
+                                <input class="form-control" type="password" name="shop_password" id="shop_password" placeholder="New Password">
                             </div>
                             <div class="form-footer">
                                 <button class="btn btn-primary btn-block">Save</button>
@@ -38,7 +39,6 @@
                 </div>
             </div>
             <div class="col-md-8 col-lg-8">
-
 
                 <form method="post" action="<?php echo e(route('shop.profile.update')); ?>" class="card">
                     <?php echo csrf_field(); ?>
@@ -77,13 +77,13 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="shop_address" class="form-label">Address</label>
-                                    <input class="form-control" type="text" name="shop_address" id="shop_address" value="<?php echo e($shop->address); ?>" placeholder="Restaurant Address">
+                                    <input class="form-control" type="text" name="shop_address" id="shop_address" value="<?php echo e($shop->address); ?>" placeholder="Restaurant Address" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group mb-0">
-                                    <label for="about" class="form-label">About Me</label>
-                                    <textarea class="form-control" rows="5" name="about" id="about" placeholder="Enter About your description"></textarea>
+                                    <label for="about" class="form-label">About Our Services</label>
+                                    <textarea class="form-control" rows="5" name="about" id="about" placeholder="Enter About your description"><?php echo e($shop->about); ?></textarea>
                                 </div>
                             </div>
                         </div>

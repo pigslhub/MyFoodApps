@@ -26,72 +26,103 @@ class ProfileController extends Controller
         $allShopTypes = DB::table('shop_types')->get();
         return view('shop.profile.edit', ["shop"=>$shop, "allShopTypes"=>$allShopTypes]);
     }
-    public function update(Request $request)
-    {
-        if($request->file('shop_image')){
-            $avatar = $request->file('shop_image');
-            $fileName = time(). '.'. $avatar->getClientOriginalName(). '.'. $avatar->getClientOriginalExtension();
-            $path = public_path('/images/shops/'. $fileName);
-            (new ImageManager)->make($avatar->getRealPath())->resize(300,300)->save($path);
-            $avatar->move(public_path().'/images/shops/',$fileName);
 
-            $fileNameWithPath = 'images/shops/'. $fileName;
+    public function updateEmailAndPassword(Request $request){
 
-//            (new \Intervention\Image\Image)->make($avatar)->save(public_path('/images/shops/'.$fileName));
-
-
-            if ($request->shop_password == '') {
-                DB::table('shops')->where('id', '=', $request->id)->update([
-                    'name' => $request->shop_name,
-                    'owner_name' => $request->shop_owner_name,
-                    'address' => $request->shop_address,
-                    'email' => $request->shop_email,
-                    'phone' => $request->shop_phone,
-                    'area_code' => $request->shop_area_code,
-                    'avatar' => $fileNameWithPath,
-                    'status' => '1',
+        if($request->shop_password != ""){
+            DB::table('shops')->where('id', '=', $request->id)
+                ->update([
+                    'email'=>$request->shop_email,
+                    'password'=>Hash::make($request->shop_password)
                 ]);
-            } else {
-
-                DB::table('shops')->where('id', '=', $request->id)->update([
-                    'name' => $request->shop_name,
-                    'owner_name' => $request->shop_owner_name,
-                    'address' => $request->shop_address,
-                    'email' => $request->shop_email,
-                    'password' => Hash::make($request->shop_password),
-                    'phone' => $request->shop_phone,
-                    'area_code' => $request->shop_area_code,
-                    'avatar' => $fileNameWithPath,
-                    'status' => '1',
-                ]);
-            }
-
         }
         else{
-            if ($request->shop_password == '') {
-                DB::table('shops')->where('id', '=', $request->id)->update([
-                    'name' => $request->shop_name,
-                    'owner_name' => $request->shop_owner_name,
-                    'address' => $request->shop_address,
-                    'email' => $request->shop_email,
-                    'phone' => $request->shop_phone,
-                    'area_code' => $request->shop_area_code,
-                    'status' => '1',
+            DB::table('shops')->where('id', '=', $request->id)
+                ->update([
+                    'email'=>$request->shop_email,
                 ]);
-            } else {
-
-                DB::table('shops')->where('id', '=', $request->id)->update([
-                    'name' => $request->shop_name,
-                    'owner_name' => $request->shop_owner_name,
-                    'address' => $request->shop_address,
-                    'email' => $request->shop_email,
-                    'password' => Hash::make($request->shop_password),
-                    'phone' => $request->shop_phone,
-                    'area_code' => $request->shop_area_code,
-                    'status' => '1',
-                ]);
-            }
         }
+
+        return redirect()->route('shop.profile.index');
+
+    }
+
+
+    public function update(Request $request)
+    {
+//        if($request->file('shop_image')){
+//            $avatar = $request->file('shop_image');
+//            $fileName = time(). '.'. $avatar->getClientOriginalName(). '.'. $avatar->getClientOriginalExtension();
+//            $path = public_path('/images/shops/'. $fileName);
+//            (new ImageManager)->make($avatar->getRealPath())->resize(300,300)->save($path);
+//            $avatar->move(public_path().'/images/shops/',$fileName);
+//
+//            $fileNameWithPath = 'images/shops/'. $fileName;
+//
+////            (new \Intervention\Image\Image)->make($avatar)->save(public_path('/images/shops/'.$fileName));
+//
+//
+//            if ($request->shop_password == '') {
+//                DB::table('shops')->where('id', '=', $request->id)->update([
+//                    'name' => $request->shop_name,
+//                    'owner_name' => $request->shop_owner_name,
+//                    'address' => $request->shop_address,
+//                    'email' => $request->shop_email,
+//                    'phone' => $request->shop_phone,
+//                    'area_code' => $request->shop_area_code,
+//                    'avatar' => $fileNameWithPath,
+//                    'status' => '1',
+//                ]);
+//            } else {
+//
+//                DB::table('shops')->where('id', '=', $request->id)->update([
+//                    'name' => $request->shop_name,
+//                    'owner_name' => $request->shop_owner_name,
+//                    'address' => $request->shop_address,
+//                    'email' => $request->shop_email,
+//                    'password' => Hash::make($request->shop_password),
+//                    'phone' => $request->shop_phone,
+//                    'area_code' => $request->shop_area_code,
+//                    'avatar' => $fileNameWithPath,
+//                    'status' => '1',
+//                ]);
+//            }
+//
+//        }
+//        else{
+//            if ($request->shop_password == '') {
+//                DB::table('shops')->where('id', '=', $request->id)->update([
+//                    'name' => $request->shop_name,
+//                    'owner_name' => $request->shop_owner_name,
+//                    'address' => $request->shop_address,
+//                    'email' => $request->shop_email,
+//                    'phone' => $request->shop_phone,
+//                    'area_code' => $request->shop_area_code,
+//                    'status' => '1',
+//                ]);
+//            } else {
+//
+//                DB::table('shops')->where('id', '=', $request->id)->update([
+//                    'name' => $request->shop_name,
+//                    'owner_name' => $request->shop_owner_name,
+//                    'address' => $request->shop_address,
+//                    'email' => $request->shop_email,
+//                    'password' => Hash::make($request->shop_password),
+//                    'phone' => $request->shop_phone,
+//                    'area_code' => $request->shop_area_code,
+//                    'status' => '1',
+//                ]);
+//            }
+//        }
+
+        DB::table('shops')->where('id', '=', $request->id)->update([
+                    'name' => $request->shop_name,
+                    'owner_name' => $request->shop_owner_name,
+                    'area_code' => $request->shop_area_code,
+                    'address' => $request->shop_address,
+                    'phone' => $request->shop_phone,
+                    'about' => $request->about,
+                ]);
 
         return redirect()->route('shop.profile.index')->with("success", "Profile updated successfully");
     }
