@@ -163,6 +163,7 @@ Route::group(['namespace' => 'Shop', 'prefix' => 'shop'], function () {
 
     Route::group(['prefix' => 'profile'], function () {
         Route::get('index', 'ProfileController@index')->name('shop.profile.index');
+        Route::post('updateEmailAndPassword', 'ProfileController@updateEmailAndPassword')->name('shop.profile.updateEmailAndPassword');
         Route::post('update', 'ProfileController@update')->name('shop.profile.update');
     });
 
