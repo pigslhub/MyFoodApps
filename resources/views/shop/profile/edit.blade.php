@@ -87,11 +87,19 @@
                                     </div>
 
                                 </div>
+<<<<<<< HEAD
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group mb-0">
+                                    <label for="about" class="form-label">About Me</label>
+                                    <textarea class="form-control" rows="5" name="about" id="about" placeholder="Enter About your description"></textarea>
+=======
 
                                 <div class="row py-2">
                                     <div class="col-md-3">
                                         <input type="submit" value="Update Profile" class="btn btn-block btn-primary pull-right">
                                     </div>
+>>>>>>> parent of c7dc739... shop profile
                                 </div>
                             </form>
                         </div>
