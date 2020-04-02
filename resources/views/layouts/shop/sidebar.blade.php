@@ -12,17 +12,14 @@
       <p>general manager.</p>
     </div>
       <ul class="sidebar-menu">
-          <li><a class="sidebar-header" href="#" target="_blank"><i data-feather="home"></i><span>Admin Dashboard</span></a></li>
-          <li class="active"><a class="sidebar-header" href="#"><i data-feather="anchor"></i><span>Starter Kit</span><i class="fa fa-angle-right pull-right"></i></a>
-              <ul class="sidebar-submenu">
-                  <li class="active"><a href="#"><i class="fa fa-circle"></i>color version<i class="fa fa-angle-down pull-right"></i></a>
-                      <ul class="sidebar-submenu">
-                          <li><a class="active" href="#"><i class="fa fa-circle"></i>Layout Light</a></li>
-                      </ul>
-                  </li>
-              </ul>
-          </li>
-          <li><a class="sidebar-header" href="#" target="_blank"><i data-feather="file-text"></i><span>Documentation</span></a></li>
+          <li><a class="sidebar-header" href="{{route('shop.home')}}" ><i data-feather="home"></i><span>Dashboard</span></a></li>
+          <li><a class="sidebar-header" href="{{route('shop.selectCategory')}}" ><i data-feather="file-text"></i><span>Manage Restaurant</span></a></li>
+          <li><a class="sidebar-header" href="{{route('shop.showMyCategories')}}" ><i data-feather="file-text"></i><span>My Categories</span></a></li>
+          <li><a class="sidebar-header" href="{{route('shop.conversation.index')}}" ><i data-feather="file-text"></i><span>Inbox</span></a></li>
+          <li><a class="sidebar-header" href="{{route('shop.order.viewAll')}}" ><i data-feather="box"></i><span>Orders</span></a></li>
+          <li><a class="sidebar-header" href="{{route('shop.advertisement.create')}}" ><i data-feather="file-text"></i><span>Advertisement</span></a></li>
+
+
       </ul>
   </div>
 </div>

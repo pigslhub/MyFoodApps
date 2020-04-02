@@ -12,35 +12,24 @@
       <div class="card-body">
         <div class="text-center">
           <h4>SHOP LOGIN</h4>
-          <h6>Enter your Username and Password </h6>
+          <h6>Enter your Email and Password </h6>
         </div>
         <form method="POST" action="{{ route('shop.login.submit') }}" class="theme-form">
+            @csrf
           <div class="form-group">
-            <label class="col-form-label pt-0">Your Name</label>
-            <input class="form-control" type="text" required="">
+            <label for="email" class="col-form-label pt-0">Your Email</label>
+            <input class="form-control" type="text" name="email" id="email" required="">
           </div>
           <div class="form-group">
-            <label class="col-form-label">Password</label>
-            <input class="form-control" type="password" required="">
+            <label for="password" class="col-form-label">Password</label>
+            <input class="form-control" type="password" name="password" id="password" required="">
           </div>
           <div class="checkbox p-0">
-            <input id="checkbox1" type="checkbox">
-            <label for="checkbox1">Remember me</label>
+            <input id="remember" name="remember" type="checkbox">
+            <label for="remember">Remember me</label>
           </div>
           <div class="form-group form-row mt-3 mb-0">
             <button class="btn btn-primary btn-block" type="submit">Login</button>
-          </div>
-          <div class="form-group form-row mt-3 mb-0">
-            <button class="btn btn-secondary btn-block" type="submit">Login With Auth0</button>
-          </div>
-          <div class="login-divider"></div>
-          <div class="social mt-3">
-            <div class="form-group btn-showcase d-flex">
-              <button class="btn social-btn btn-fb d-inline-block"> <i class="fa fa-facebook"></i></button>
-              <button class="btn social-btn btn-twitter d-inline-block"><i class="fa fa-google"></i></button>
-              <button class="btn social-btn btn-google d-inline-block"><i class="fa fa-twitter"></i></button>
-              <button class="btn social-btn btn-github d-inline-block"><i class="fa fa-github"></i></button>
-            </div>
           </div>
         </form>
       </div>

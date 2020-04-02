@@ -2,7 +2,7 @@
 <div class="page-main-header">
   <div class="main-header-right row">
     <div class="main-header-left d-lg-none">
-      <div class="logo-wrapper"><a href="#"><img src="{{asset('assets/images/endless-logo.png')}}" alt=""></a></div>
+      <div class="logo-wrapper"><a href="#"><img src="<?php echo e(asset('assets/images/endless-logo.png')); ?>" alt=""></a></div>
     </div>
     <div class="mobile-sidebar">
       <div class="media-body text-right switch-sm">
@@ -12,19 +12,19 @@
     <div class="nav-right col p-0">
       <ul class="nav-menus">
           <li></li>
-{{--        <li>--}}
-{{--          <form class="form-inline search-form" action="#" method="get">--}}
-{{--            <div class="form-group">--}}
-{{--              <div class="Typeahead Typeahead--twitterUsers">--}}
-{{--                <div class="u-posRelative">--}}
-{{--                  <input class="Typeahead-input form-control-plaintext" id="demo-input" type="text" name="q" placeholder="Search...">--}}
-{{--                  <div class="spinner-border Typeahead-spinner" role="status"><span class="sr-only">Loading...</span></div><span class="d-sm-none mobile-search"><i data-feather="search"></i></span>--}}
-{{--                </div>--}}
-{{--                <div class="Typeahead-menu"></div>--}}
-{{--              </div>--}}
-{{--            </div>--}}
-{{--          </form>--}}
-{{--        </li>--}}
+
+
+
+
+
+
+
+
+
+
+
+
+
         <li><a class="text-dark" href="#!" onclick="toggleFullScreen()"><i data-feather="maximize"></i></a></li>
 
         <li class="onhover-dropdown"><i data-feather="bell"></i><span class="dot"></span>
@@ -59,13 +59,13 @@
         </li>
         <li><a href="#"><i class="right_side_toggle" data-feather="message-circle"></i><span class="dot"></span></a></li>
         <li class="onhover-dropdown">
-          <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle" src="{{asset('assets/images/dashboard/user.png')}}" alt="header-user">
+          <div class="media align-items-center"><img class="align-self-center pull-right img-50 rounded-circle" src="<?php echo e(asset('assets/images/dashboard/user.png')); ?>" alt="header-user">
             <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
           </div>
           <ul class="profile-dropdown onhover-show-div p-20">
-              <li><a href="{{route('shop.profile.index')}}"><i data-feather="user"></i>Edit Profile</a></li>
+              <li><a href="<?php echo e(route('shop.profile.index')); ?>"><i data-feather="user"></i>Edit Profile</a></li>
 
-              <li><a href="{{route('shop.logout')}}"><i data-feather="log-out"></i>Logout</a></li>
+              <li><a href="<?php echo e(route('shop.logout')); ?>"><i data-feather="log-out"></i>Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -76,7 +76,7 @@
 
       <div class="ProfileCard-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay m-0"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg></div>
       <div class="ProfileCard-details">
-      <div class="ProfileCard-realName">@{{name}}</div>
+      <div class="ProfileCard-realName">{{name}}</div>
       </div>
       </div>
     </script>
@@ -87,3 +87,4 @@
   </div>
 </div>
 <!-- Page Header Ends -->
+<?php /**PATH E:\Sir Imran\MyFoodApps\resources\views/layouts/shop/header.blade.php ENDPATH**/ ?>
