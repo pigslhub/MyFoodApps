@@ -1,5 +1,8 @@
 @extends('layouts.shop.master')
 @section('breadcrumb-title', 'Edit Profile')
+@section('breadcrumb-items')
+    <li class="breadcrumb-item active">Edit Profile</li>
+@endsection
 @section('content')
 <div class="content">
     <div class="container-fluid">
