@@ -4,120 +4,103 @@
     <li class="breadcrumb-item active">Edit Profile</li>
 @endsection
 @section('content')
-<div class="content">
-    <div class="container-fluid">
+<div class="container-fluid">
+    <div class="edit-profile">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-4 col-lg-4">
                 <div class="card">
-                    <div class="card-header card-header-primary">
-                        <h4 class="card-title">Edit Profile</h4>
-
+                    <div class="card-header">
+                        <h4 class="card-title mb-0">My Profile</h4>
+                        <div class="card-options"><a class="card-options-collapse" href="#" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-toggle="card-remove"><i class="fe fe-x"></i></a></div>
                     </div>
                     <div class="card-body">
-
-
-                        <div class="table-responsive">
-                            <form action="{{route('shop.profile.update')}}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                <input type="hidden" name="id" id="id" value="{{$shop->id}}">
-                                <div class="row py-2">
-                                    <div class="col-md-4">
-                                        <div class="form-group bmd-form-group">
-                                            <label for="shop_name" class="bmd-label-floating">Shop Name</label>
-                                            <input type="text" class="form-control" name="shop_name" value="{{$shop->name}}" id="shop_name" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group bmd-form-group">
-                                            <label for="shop_owner_name" class="bmd-label-floating">Owner Name</label>
-                                            <input type="text" class="form-control" name="shop_owner_name" value="{{$shop->owner_name}}" id="shop_owner_name" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group bmd-form-group">
-                                            <label for="shop_email" class="bmd-label-floating">E-mail</label>
-                                            <input type="email" class="form-control" name="shop_email" value="{{$shop->email}}" id="shop_email" required>
-                                        </div>
-                                    </div>
-
+                        <form action="" method="post">
+                            @csrf
+                            <div class="row mb-2">
+                                <div class="col-auto"><img class="img-70 rounded-circle" alt="" src="{{auth('shop')->user()->avatar}}"></div>
+                                <div class="col">
+                                    <h3 class="mb-1">{{auth('shop')->user()->name}}</h3>
+                                    <p class="mb-4">{{auth('shop')->user()->email}}</p>
                                 </div>
-                                <div class="row py-2">
-                                    <div class="col-md-4">
-                                        <div class="form-group bmd-form-group">
-                                            <label for="shop_password" class="bmd-label-floating">Password</label>
-                                            <input type="password" class="form-control" name="shop_password" id="shop_password">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group bmd-form-group">
-                                            <label for="shop_address" class="bmd-label-floating">Address</label>
-                                            <input type="text" class="form-control" name="shop_address" value="{{$shop->address}}" id="shop_address" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group bmd-form-group">
-                                            <label for="shop_phone" class="bmd-label-floating">Phone</label>
-                                            <input type="text" class="form-control" name="shop_phone" value="{{$shop->phone}}" id="shop_phone" required>
-                                        </div>
-                                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="shop_email" class="form-label">Email-Address</label>
+                                <input type="email" class="form-control" name="shop_email" id="shop_email" value="{{$shop->email}}" placeholder="your-email@domain.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="shop_password" class="form-label">Password</label>
+                                <input class="form-control" type="password" name="shop_password" id="shop_password">
+                            </div>
+                            <div class="form-footer">
+                                <button class="btn btn-primary btn-block">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-lg-8">
 
-                                </div>
-                                <div class="row py-2">
-                                    <div class="col-md-4">
-                                        <div class="form-group bmd-form-group">
-                                            <label for="shop_area_code" class="bmd-label-floating">Area Code</label>
-                                            <input type="text" class="form-control" value="{{$shop->area_code}}" name="shop_area_code" id="shop_area_code" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group bmd-form-group">
-                                            <label for="shop_type" class="bmd-label-floating">Shop Type</label>
-                                            <input type="text" list="shopTypes" class="form-control" name="shop_type" id="shop_type">
-                                            <datalist id="shopTypes">
-                                                <option value="{{$shop->shop_type_id}}">{{$shop->shop_type_name}}</option>
-                                                <option>---------------------------</option>
-                                                @foreach($allShopTypes as $allShopType)
-                                                    <option value="{{$allShopType->id}}">{{$allShopType->type}}</option>
-                                                @endforeach
-                                            </datalist>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div>
-                                            <label for="shop_image" class="bmd-label-floating">Image</label>
-                                            <input type="file" class="form-control" name="shop_image" id="shop_image">
-                                        </div>
-                                    </div>
 
+                <form method="post" action="{{route('shop.profile.update')}}" class="card">
+                    @csrf
+                    <input type="hidden" name="id" id="id" value="{{$shop->id}}">
+                    <div class="card-header">
+                        <h4 class="card-title mb-0">Edit Profile</h4>
+                        <div class="card-options"><a class="card-options-collapse" href="#" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="#" data-toggle="card-remove"><i class="fe fe-x"></i></a></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="shop_name" class="form-label">Company</label>
+                                    <input class="form-control" type="text" name="shop_name" id="shop_name" value="{{$shop->name}}" placeholder="Company Name" required>
                                 </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="shop_owner_name" class="form-label">Owner</label>
+                                    <input class="form-control" type="text" name="shop_owner_name" id="shop_owner_name" value="{{$shop->owner_name}}" placeholder="Owner Name" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="shop_area_code" class="form-label">Area Code</label>
+                                    <input class="form-control" type="number" name="shop_area_code" id="shop_area_code" value="{{$shop->area_code}}" placeholder="Area Code" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="shop_phone" class="form-label">Phone</label>
+                                    <input class="form-control" type="text" name="shop_phone" id="shop_phone" value="{{$shop->phone}}" placeholder="Phone Number" required>
+                                </div>
+                            </div>
 
-                                <div class="row py-2">
-                                    <div class="col-md-3">
-                                        <input type="submit" value="Update Profile" class="btn btn-block btn-primary pull-right">
-                                    </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="shop_address" class="form-label">Address</label>
+                                    <input class="form-control" type="text" name="shop_address" id="shop_address" value="{{$shop->address}}" placeholder="Restaurant Address">
                                 </div>
-                            </form>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group mb-0">
+                                    <label for="about" class="form-label">About Me</label>
+                                    <textarea class="form-control" rows="5" name="about" id="about" placeholder="Enter About your description"></textarea>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card card-profile">
-                    <div class="card-avatar">
-                        <img src="{{asset($shop->avatar)}}" alt="profile">
+                    <div class="card-footer text-right">
+                        <button class="btn btn-primary" type="submit">Update Profile</button>
                     </div>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            {{$shop->name}}
-                        </h4>
-                        <p class="card-description">
-                            Some description about the shop, i.e the services it provides its opening and closing timing.
-                        </p>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
-
     </div>
 </div>
+
+
+
+{{--<label for="shop_image" class="bmd-label-floating">Image</label>--}}
+{{--<input type="file" class="form-control" name="shop_image" id="shop_image">--}}
+
 @endsection
