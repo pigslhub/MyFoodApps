@@ -12,7 +12,7 @@ class Shop extends Authenticatable
 
     protected $guard = 'shop';
     protected $fillable = [
-        'name', 'owner_name', 'email', 'password', 'address', 'phone', 'area_code', 'about', 'commision', 'status', 'avatar', 'rating'
+        'name', 'owner_name', 'email', 'password', 'address', 'phone', 'area_code', 'gender', 'dob', 'about', 'commision', 'status', 'avatar', 'rating'
     ];
 
     /**

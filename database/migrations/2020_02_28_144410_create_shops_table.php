@@ -16,17 +16,19 @@ class CreateShopsTable extends Migration
     {
         Schema::create('shops', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('owner_name');
+            $table->string('name')->nullable();
+            $table->string('owner_name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('address');
             $table->string('phone')->unique();
             $table->string('area_code');
+            $table->string('gender')->nullable();
+            $table->string('dob')->nullable();
             $table->string('about')->nullable();
             $table->string('status');
-            $table->double('commision');
+            $table->double('commision')->nullable();
             $table->bigInteger('shop_type_id')->unsigned();
             $table->string('avatar')->nullable();
             $table->integer('rating')->default(0);

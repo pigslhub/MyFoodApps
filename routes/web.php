@@ -25,6 +25,12 @@ Route::get('user/logout', 'Auth\LoginController@userLogout')->name('user.logout'
 //Route::view('/dashboard', 'default')->name('default  ');
 //Route::view('/inner-page', 'inner-page')->name('inner-page');
 
+//register routes
+
+Route::group(['prefix'=>'register'], function (){
+    Route::get('index', 'RegisterController@index')->name('user.index');
+    Route::post('create', 'RegisterController@create')->name('user.create');
+});
 
 
 

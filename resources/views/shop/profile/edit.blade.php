@@ -84,7 +84,7 @@
                             <div class="col-md-12">
                                 <div class="form-group mb-0">
                                     <label for="about" class="form-label">About Our Services</label>
-                                    <textarea class="form-control" rows="5" name="about" id="about" placeholder="Enter About your description">{{$shop->about}}</textarea>
+                                    <textarea class="form-control" rows="5" name="about" id="about" placeholder="Enter About your Services">{{$shop->about}}</textarea>
                                 </div>
                             </div>
                         </div>
