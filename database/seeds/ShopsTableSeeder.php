@@ -23,7 +23,9 @@ class ShopsTableSeeder extends Seeder
             "address" => "satellite town",
             "phone" => "123545444345",
             "area_code" => "10001",
-            "avatar" => "/assets/images/shops/shop.jpeg",
+            "avatar" => "/assets/images/default/male.jpeg",
+            "gender"=>'male',
+            "dob"=>'3/12/1973',
             "status" => "1",
             "commision" => "5",
             "shop_type_id" => "1",
@@ -38,10 +40,12 @@ class ShopsTableSeeder extends Seeder
             "address" => "Lahore",
             "phone" => "456356774333",
             "area_code" => "10001",
-            "avatar" => "/assets/images/shops/shop.jpeg",
+            "avatar" => "/assets/images/default/male.jpeg",
+            "gender"=>'male',
+            "dob"=>'3/12/1973',
             "status" => "1",
             "commision" => "5",
-            "shop_type_id" => "1",
+            "shop_type_id" => "2",
             "rating" => 0
         ]);
     }

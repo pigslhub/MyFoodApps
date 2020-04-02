@@ -13,15 +13,12 @@ class ShopTypesTableSeeder extends Seeder
     public function run()
     {
         DB::table('shop_types')->insert([
-            "type"=>"grocery store",
+            "type"=>"Restaurant",
         ]);
 
         DB::table('shop_types')->insert([
-            "type"=>"book shop",
+            "type"=>"Home Base Chef",
         ]);
 
-        DB::table('shop_types')->insert([
-            "type"=>"carpenter",
-        ]);
     }
 }
