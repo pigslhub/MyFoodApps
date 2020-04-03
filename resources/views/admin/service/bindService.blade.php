@@ -1,5 +1,5 @@
 @extends('layouts.app-admin', ['activePage' => 'dashboard', 'titlePage' => __('Dashboard')])
-@section('pageName', 'Service Binding')
+@section('pageName', 'Product Binding')
 @section('content')
 <div class="content">
     <div class="container-fluid">

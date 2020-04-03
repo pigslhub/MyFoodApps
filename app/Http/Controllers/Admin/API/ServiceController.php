@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\API;
 
 use App\Http\Controllers\Controller;
-use App\Service;
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +15,7 @@ class ServiceController extends Controller
 
     public function index()
     {
-        return Service::all();
+        return Product::all();
     }
 
     // public function __construct()
@@ -44,7 +44,7 @@ class ServiceController extends Controller
     //     ]);
 
 
-    //     return redirect()->route('admin.service.create')->with("success", "Service added successfully");
+    //     return redirect()->route('admin.service.create')->with("success", "Product added successfully");
     // }
 
 
@@ -61,13 +61,13 @@ class ServiceController extends Controller
     //         'name' => $request->service_name
     //     ]);
 
-    //     return redirect()->route('admin.service.create')->with('success', "Service updated successfully");
+    //     return redirect()->route('admin.service.create')->with('success', "Product updated successfully");
     // }
 
 
     // public function destroy($id)
     // {
     //     DB::table('services')->where('id', $id)->delete();
-    //     return redirect()->route('admin.service.create')->with("info", "Service deleted");
+    //     return redirect()->route('admin.service.create')->with("info", "Product deleted");
     // }
 }
