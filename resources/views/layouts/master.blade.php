@@ -10,5 +10,4 @@
     @include('includes.partials.default.footervarview')
     @include('includes.partials.default.scripts')
   </body>
-
 </html>
