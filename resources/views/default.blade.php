@@ -172,7 +172,7 @@
                     <div class="product-box mb-md-20">
                         <div class="product-img">
                             <a href="https:///save/_embed/http://slidesigma.com/themes/html/munchbox/restaurant.html">
-                                <img src="themes/html/munchbox/assets/img/restaurants/255x104/order-1.jpg" class="img-fluid full-width" alt="product-img">
+                                <img src="{{asset('assets/ast/img/restaurants/255x104/order-1.jpg')}}" class="img-fluid full-width" alt="product-img">
                             </a>
                         </div>
                         <div class="product-caption">
