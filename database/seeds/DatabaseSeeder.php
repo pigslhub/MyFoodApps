@@ -21,4 +21,5 @@ class DatabaseSeeder extends Seeder
         // $this->call(ShopCategoryServicesTableSeeder::class);
         $this->call(DriversTableSeeder::class);
     }
+    
 }
