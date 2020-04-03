@@ -39,7 +39,7 @@ class BindServiceAndCategoryController extends Controller
             'service_id' => $request->service_id,
             'category_id' => $request->category_id,
         ]);
-        return redirect()->route('admin.serviceAndCategory.create')->with("success", "Service Binding successfully");
+        return redirect()->route('admin.serviceAndCategory.create')->with("success", "Product Binding successfully");
     }
 
 
