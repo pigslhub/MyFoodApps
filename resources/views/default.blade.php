@@ -1,9 +1,10 @@
-@extends('layouts.master')
+@extends('layouts.default-master')
 @section('title', 'MyFoodApp | Food Delivery Hub')
 @section('style')
+@endsection
 
 @section('main')
-    
+
 
     <!-- Navigation -->
     <div class="header">
@@ -49,12 +50,12 @@
                                     <span >Register As</span>
                                 </a>
                             </div>
-                           
-                            
-                           
+
+
+
                             <!-- user notification -->
                             <!-- user cart -->
-                           
+
                             <!-- user cart -->
                         </div>
                     </div>
@@ -148,7 +149,7 @@
                                     </div> <span class="text-light-black cat-name">Brooklyn</span>
                                 </a>
                             </div>
-                            
+
                         </div>
                         <!-- Add Arrows -->
                         <div class="swiper-button-next"></div>
@@ -184,7 +185,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </section>
@@ -200,7 +201,7 @@
                 </div>
             </div>
             <div class="row">
-                
+
                 <div class="col-lg-12 col-md-12">
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-6">
@@ -209,7 +210,7 @@
                                     <a href="https:///save/_embed/http://slidesigma.com/themes/html/munchbox/restaurant.html">
                                         <img src="{{asset('assets/ast/img/restaurants/255x150/shop-23.jpg')}}" class="img-fluid full-width" alt="product-img">
                                     </a>
-                                    
+
                                 </div>
                                 <div class="product-caption">
                                     <div class="title-box">
@@ -232,7 +233,7 @@
                                             <span class="text-light-white text-right">4225 ratings</span>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -249,7 +250,7 @@
             </div>
             <!-- advertisement banner-->
              <div class="row">
-                
+
                 <div class="col-lg-12 col-md-12">
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-6">
@@ -258,7 +259,7 @@
                                     <a href="https:///save/_embed/http://slidesigma.com/themes/html/munchbox/restaurant.html">
                                         <img src="{{asset('assets/ast/img/restaurants/255x150/shop-23.jpg')}}" class="img-fluid full-width" alt="product-img">
                                     </a>
-                                    
+
                                 </div>
                                 <div class="product-caption">
                                     <div class="title-box">
@@ -281,15 +282,15 @@
                                             <span class="text-light-white text-right">4225 ratings</span>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-         
-         
+
+
         </div>
     </section>
     <!-- Explore collection -->
