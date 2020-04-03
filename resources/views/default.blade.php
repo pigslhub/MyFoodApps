@@ -1,7 +1,5 @@
 @extends('layouts.default-master')
 @section('title', 'MyFoodApp | Food Delivery Hub')
-@section('style')
-@endsection
 
 @section('main')
 
@@ -331,6 +329,4 @@
             </div>
         </div>
     </div>
-@endsection
-@section('script')
 @endsection
