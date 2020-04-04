@@ -1,5 +1,5 @@
 @extends('layouts.shop.master')
-@section('breadcrumb-title', 'Shop Dashboard')
+@section('breadcrumb-title', 'Dashboard')
 @section('content')
     <div class="content">
         <div class="container-fluid">

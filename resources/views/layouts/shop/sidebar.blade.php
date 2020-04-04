@@ -13,11 +13,11 @@
     </div>
       <ul class="sidebar-menu">
           <li><a class="sidebar-header" href="{{route('shop.home')}}" ><i data-feather="home"></i><span>Dashboard</span></a></li>
-          <li><a class="sidebar-header" href="{{route('shop.selectCategory')}}" ><i data-feather="file-text"></i><span>Manage Restaurant</span></a></li>
-          <li><a class="sidebar-header" href="{{route('shop.showMyCategories')}}" ><i data-feather="file-text"></i><span>My Categories</span></a></li>
-          <li><a class="sidebar-header" href="{{route('shop.conversation.index')}}" ><i data-feather="file-text"></i><span>Inbox</span></a></li>
+          <li><a class="sidebar-header" href="{{route('shop.selectCategory')}}" ><i data-feather="package"></i><span>My Products</span></a></li>
+{{--          <li><a class="sidebar-header" href="{{route('shop.showMyCategories')}}" ><i data-feather="file-text"></i><span>My Categories</span></a></li>--}}
+          <li><a class="sidebar-header" href="{{route('shop.conversation.index')}}" ><i data-feather="inbox"></i><span>Inbox</span></a></li>
           <li><a class="sidebar-header" href="{{route('shop.order.viewAll')}}" ><i data-feather="box"></i><span>Orders</span></a></li>
-          <li><a class="sidebar-header" href="{{route('shop.advertisement.create')}}" ><i data-feather="file-text"></i><span>Advertisement</span></a></li>
+          <li><a class="sidebar-header" href="{{route('shop.advertisement.create')}}" ><i data-feather="bookmark"></i><span>Advertisement</span></a></li>
 
 
       </ul>

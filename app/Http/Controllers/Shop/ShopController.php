@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\ImageManager;
 
 class ShopController extends Controller
 {
@@ -52,7 +53,11 @@ class ShopController extends Controller
     public function selectCategory()
     {
         $categories =  DB::table('categories')->get();
-        return view('shop.shopMgt.category.selectCategory', ["categories" => $categories]);
+        $products = DB::table('products')
+            ->join('categories', 'products.category_id', 'categories.id')
+            ->select('products.*', 'categories.name as category_name')
+            ->get();
+        return view('shop.shopMgt.category.selectCategory', ["categories" => $categories, "products"=>$products]);
     }
 
 
@@ -68,41 +73,24 @@ class ShopController extends Controller
 
     public function store(Request $request)
     {
-        //        dd($request->category_id);
-        //        dd($request->service_id);
-        //        dd(Auth::user()->id);
+            $avatar = $request->file('picture');
+            $fileName = time(). '.'. $avatar->getClientOriginalName(). '.'. $avatar->getClientOriginalExtension();
+            $path = public_path('/assets/images/product/'. $fileName);
+            (new ImageManager)->make($avatar->getRealPath())->resize(300,300)->save($path);
 
-        $service = DB::table('shop_category_services_rate')
-            ->where('shop_id', '=', Auth::user()->id)
-            ->where('category_id', '=', $request->category_id)
-            ->where('service_id', '=', $request->service_id)
-            ->get();
-
-        //        dd($service->count());
+            $fileNameWithPath = 'images/shops/'. $fileName;
 
 
-        $services =  DB::table('services')->get();
-
-
-        //
-        if ($service->count() == 0) {
-            DB::table('shop_category_services_rate')->insertOrIgnore([
-                'shop_id' => Auth::user()->id,
+            DB::table('products')->insert([
+                'restaurant_id' => Auth::guard('shop')->user()->id,
                 'category_id' => $request->category_id,
-                'service_id' => $request->service_id,
-                'rate' => $request->service_rate,
-
+                'name' => $request->product,
+                'price' => $request->price,
+                'picture'=> $fileNameWithPath
             ]);
 
+            return redirect()->route('shop.selectCategory');
 
-            //        return redirect()->route('shop.selectService', $request->category_id)->with("success", "Binding Successfull");
-            return view('shop.shopMgt.service.selectService', ["services" => $services, "categoryId" => $request->category_id])
-                ->with('success', 'services bind successfully!');
-        } else {
-            return view('shop.shopMgt.service.selectService', ["services" => $services, "categoryId" => $request->category_id])
-                ->with('warning', 'services already exist');
-            //            return redirect()->back()->with('warning', 'services already exist');
-        }
     }
 
 
@@ -165,9 +153,7 @@ class ShopController extends Controller
      */
     public function destroy($id)
     {
-        $categoryId = DB::table('shop_category_services_rate')->where('id', $id)->first();
-        DB::table('shop_category_services_rate')->where('id', $id)->delete();
-
-        return redirect()->route('shop.showMyServices', $categoryId->category_id)->with('success', 'service deleted successfully');
+        DB::table('products')->where('id', $id)->delete();
+        return redirect()->route('shop.selectCategory');
     }
 }
