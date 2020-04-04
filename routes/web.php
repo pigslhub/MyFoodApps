@@ -27,7 +27,7 @@ Route::get('user/logout', 'Auth\LoginController@userLogout')->name('user.logout'
 
 //register routes
 
-Route::group(['prefix'=>'register'], function (){
+Route::group(['prefix' => 'register'], function () {
     Route::get('index', 'RegisterController@index')->name('user.index');
     Route::post('create', 'RegisterController@create')->name('user.create');
 });
@@ -148,6 +148,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
         Route::get('viewAllOrders', 'OrderController@viewAllOrders')->name('admin.order.viewAll');
         Route::get('viewSingleOrder/{id}', 'OrderController@viewSingleOrder')->name('admin.order.viewSingle');
         Route::get('viewSingleOrder/{order_id}/{newStatus}', 'OrderController@changeOrderStatus')->name('admin.order.changeStatus');
+    });
+
+
+    Route::group(['namespace' => 'coupons', 'prefix' => 'coupons'], function () {
+        Route::get('coupons/create', 'CouponController@create')->name('coupon.create');
+        Route::post('coupons/store', 'CouponController@store')->name('coupon.store');
+        Route::get('coupons/destroy/{id}', 'CouponController@destroy')->name('coupon.destroy');
     });
 });
 

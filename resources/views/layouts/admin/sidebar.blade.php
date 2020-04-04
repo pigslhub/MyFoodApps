@@ -30,15 +30,16 @@
                     <i data-feather="home"></i><span>Customers</span>
                 </a>
             </li>
-
-            {{-- <li class="nav-item {{request()->routeIs('admin.category.create')? 'active':''}}">
-                <a href="{{route('admin.category.create')}}" class="nav-link" target="">
-                    <i class="fa fa-copy"></i>
-                    <p>Categories</p>
+           
+            <li>
+                <a class="sidebar-header" href="{{route('admin.category.create')}}">
+                    <i data-feather="home"></i><span>Categories</span>
                 </a>
             </li>
+
+             
            
-           
+           {{--
             <li>
                 <a class="sidebar-header" href="{{route('admin.service.create')}}" >
                     <i data-feather="home"></i><span>Services</span>
@@ -71,6 +72,12 @@
                     <i data-feather="home"></i><span>Orders</span>
                 </a>
             </li>  
+            <li>
+                <a class="sidebar-header" href="{{route('coupon.create')}}">
+                {{-- <a class="sidebar-header" href="{{route('admin.coupon.viewAll')}}"> --}}
+                    <i data-feather="home"></i><span>Coupons</span>
+                </a>
+            </li> 
         
       </ul>
   </div>

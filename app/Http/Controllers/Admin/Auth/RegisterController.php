@@ -76,7 +76,7 @@ class RegisterController extends Controller
     public function create()
     {
         $admins = DB::table('admins')->where('type', '=', '0')->get();
-        return view('admin.auth.signup-image', ['admins' => $admins]);
+        return view('admin.auth.register', ['admins' => $admins]);
     }
 
     public function store(Request $request)
